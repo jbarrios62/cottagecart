@@ -12,6 +12,7 @@ Implement secure user authentication
 Provide shopping cart and checkout functionality
 Store product and ordering data in a database
 Create an administrative dashboard in a database
+...
 
 ## Features
 **Customer Features**
@@ -22,6 +23,7 @@ Shopping Cart
 Checkout system
 Order History 
 Order Status
+...
 
 **Admin Features**
 Add/Edit/Delete Products
@@ -29,24 +31,28 @@ Upload Product Images
 View Customer Orders
 Update Order Status 
 Manage inventory
+...
 
 ## Authentication
 **Customer Access**
 Browse Products
 Place Orders
 View Order History
+...
 
 **Administrator Access**
 Manage products
 Manage customer orders
 Update inventory
 Access reports
+...
 
 ## Technology Stack
 **Frontend**
 Vite
 Tailwind CSS
 React
+...
 
 **Backend**
 Supabase
@@ -61,6 +67,7 @@ Users
 Products
 Orders
 Order Items
+...
 
 ## Feature Enhancements
 Email order confirmation
@@ -71,11 +78,13 @@ Search Page
 Baker Order Form
 Baker Login Page 
 Baker Admin/ Management page
+...
 
 ## Team
 **_Project Name: CottageCart Website_**
 **Course: CSC/ITC 492 Senior Design**
 **Developers: Jessica Barrios and Lorena Haro**
+...
 
 
 
