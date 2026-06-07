@@ -1,5 +1,5 @@
 ## CottageCart Website
----
+
 ## *_Full-Stack Online Bakery Ordering & Management System_*
 
 CottageCart is a full-stack web designed to help with the online ordering process for at home bakeries. The system allows customers to browse products, place online orders and track their purchase while providing bakery staff with an administrative dashboard to manage inventory and customer orders.
@@ -30,8 +30,6 @@ Many at home bakeries rely on phone calls/ text messages and social media to pro
 - View Customer Orders
 - Update Order Status 
 - Manage inventory
-
----
 
 ## Authentication
 ### Customer Access
