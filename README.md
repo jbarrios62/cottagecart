@@ -53,10 +53,10 @@ Many at home bakeries rely on phone calls/ text messages and social media to pro
 
 
 **Backend**
-Supabase
+- Supabase
 
 **Database**
-PostgreSQL
+- PostgreSQL
 
 ### Database Design
 The website will include the following:
