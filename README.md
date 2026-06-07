@@ -67,7 +67,7 @@ The website will include the following:
 - Order Items
 
 ## Feature Enhancements
-Email order confirmation
+- Email order confirmation
 
 ### Planned Screens
 - Home Page
