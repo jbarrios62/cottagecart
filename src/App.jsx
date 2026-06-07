@@ -1,7 +1,7 @@
-import BakeryProfile from "./pages/BakeryProfile"
+import OrderForm from "./pages/OrderForm"
 
 function App() {
-  return <BakeryProfile />
+  return <OrderForm />
 }
 
 export default App
