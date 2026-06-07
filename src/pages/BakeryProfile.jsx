@@ -3,14 +3,32 @@ function BakeryProfile() {
     businessName: "Thrifted Bakery",
     city: "Cerritos",
     state: "CA",
-    bio: "Home-based bakery specializing in custom cakes, cake pops, and desserts."
+    bio: "Home-based bakery specializing in custom cakes, cake pops, and desserts.",
   }
 
   const blocks = ["Cake", "Cupcakes", "Cake Pops"]
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-50 via-rose-50 to-orange-50 px-4 py-10">
-      <div className="mx-auto max-w-5xl">
+    <div className="relative min-h-screen overflow-hidden bg-gradient-to-br from-pink-50 via-rose-50 to-orange-50 px-4 py-10">
+
+      {/* Floating Bakery Icons */}
+      <div className="pointer-events-none absolute left-8 top-28 hidden text-[150px] opacity-10 lg:block">
+        🧁
+      </div>
+
+      <div className="pointer-events-none absolute left-20 bottom-24 hidden -rotate-12 text-[120px] opacity-10 lg:block">
+        🍪
+      </div>
+
+      <div className="pointer-events-none absolute right-10 top-36 hidden rotate-12 text-[150px] opacity-10 lg:block">
+        🎂
+      </div>
+
+      <div className="pointer-events-none absolute right-24 bottom-20 hidden text-[120px] opacity-10 lg:block">
+        🥐
+      </div>
+
+      <div className="relative z-10 mx-auto max-w-5xl">
 
         {/* Banner Placeholder */}
         <div className="h-56 rounded-[2rem] border border-pink-100 bg-gradient-to-r from-pink-200 via-rose-200 to-orange-100 shadow-sm"></div>
@@ -43,11 +61,25 @@ function BakeryProfile() {
             <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-gray-700">
               {bakery.bio}
             </p>
+
+            <div className="mt-5 flex flex-wrap justify-center gap-3">
+              <span className="rounded-full bg-pink-100 px-4 py-2 text-sm font-medium text-pink-700">
+                ⭐ 4.9 Rating
+              </span>
+
+              <span className="rounded-full bg-orange-100 px-4 py-2 text-sm font-medium text-orange-700">
+                🧁 Custom Orders
+              </span>
+
+              <span className="rounded-full bg-rose-100 px-4 py-2 text-sm font-medium text-rose-700">
+                💕 Made Fresh
+              </span>
+            </div>
           </div>
 
           {/* Info Cards */}
           <div className="mt-10 grid gap-4 md:grid-cols-3">
-            <div className="rounded-2xl bg-pink-50 p-5 text-center">
+            <div className="rounded-2xl bg-pink-50 p-5 text-center transition hover:-translate-y-1 hover:shadow-md">
               <p className="text-2xl">🎂</p>
               <h3 className="mt-2 font-bold text-pink-800">Custom Orders</h3>
               <p className="mt-1 text-sm text-gray-600">
@@ -55,7 +87,7 @@ function BakeryProfile() {
               </p>
             </div>
 
-            <div className="rounded-2xl bg-orange-50 p-5 text-center">
+            <div className="rounded-2xl bg-orange-50 p-5 text-center transition hover:-translate-y-1 hover:shadow-md">
               <p className="text-2xl">🧁</p>
               <h3 className="mt-2 font-bold text-pink-800">Fresh Desserts</h3>
               <p className="mt-1 text-sm text-gray-600">
@@ -63,7 +95,7 @@ function BakeryProfile() {
               </p>
             </div>
 
-            <div className="rounded-2xl bg-rose-50 p-5 text-center">
+            <div className="rounded-2xl bg-rose-50 p-5 text-center transition hover:-translate-y-1 hover:shadow-md">
               <p className="text-2xl">💌</p>
               <h3 className="mt-2 font-bold text-pink-800">Easy Requests</h3>
               <p className="mt-1 text-sm text-gray-600">
@@ -74,7 +106,7 @@ function BakeryProfile() {
 
           {/* Available Orders */}
           <div className="mt-12">
-            <div className="mb-4 flex items-center justify-between">
+            <div className="mb-4 flex items-center justify-between gap-4">
               <h2 className="text-2xl font-bold text-gray-900">
                 Available Orders
               </h2>
@@ -96,13 +128,9 @@ function BakeryProfile() {
             </div>
           </div>
 
-          {/* CTA Button */}
-          <button
-            className="mt-10 w-full rounded-2xl bg-pink-600 py-4 text-lg font-bold text-white shadow-lg shadow-pink-200 transition hover:-translate-y-0.5 hover:bg-pink-700"
-          >
+          <button className="mt-10 w-full rounded-2xl bg-pink-600 py-4 text-lg font-bold text-white shadow-lg shadow-pink-200 transition hover:-translate-y-0.5 hover:bg-pink-700">
             Start Order Request
           </button>
-
         </div>
       </div>
     </div>
