@@ -32,7 +32,7 @@ function OrderForm() {
     },
   ])
 
-  const quantityOptions = [
+  const halfQuantityOptions = [
     "Half Dozen",
     "One Dozen",
     "One & a Half Dozen",
@@ -42,6 +42,15 @@ function OrderForm() {
     "Three & a Half Dozen",
     "Four Dozen",
     "Four & a Half Dozen",
+    "Five Dozen",
+    "Other, if more leave in notes",
+  ]
+
+  const dzQuantityOptions = [
+    "One Dozen",
+    "Two Dozen",
+    "Three Dozen",
+    "Four Dozen",
     "Five Dozen",
     "Other, if more leave in notes",
   ]
@@ -186,7 +195,7 @@ function OrderForm() {
                 name="dessert_table_notes"
                 value={order.dessert_table_notes}
                 onChange={updateOrder}
-                placeholder="Example: Pink coquette dessert table for a baby shower with florals, bows, and vintage-style details..."
+                placeholder="Example: Berry first birthday theme dessert table for a baby shower with white florals, strawberries, and vintage-style details..."
                 className={`mt-4 w-full ${fieldClass}`}
                 rows="4"
               />
@@ -245,34 +254,50 @@ function OrderForm() {
                     >
                       <option value="">Select dessert type</option>
                       <option value="Cake">Cake</option>
-                      <option value="Cupcakes">Cupcakes</option>
                       <option value="Cake Pops">Cake Pops</option>
-                      <option value="Cookies">Cookies</option>
+                      <option value="Chocolate Covered Strawberries">Chocolate Covered Strawberries</option>
+                      <option value="Cupcakes">Cupcakes</option>
                       <option value="Dessert Cups">Dessert Cups</option>
-                      <option value="Chocolate Covered Strawberries">
-                        Chocolate Covered Strawberries
-                      </option>
                       <option value="Other">Other</option>
                     </select>
                   </div>
 
                   {item.dessert_type === "Cake" && (
                     <div className="mt-5 grid gap-4 md:grid-cols-2">
-                      <input
+                      <select
                         name="flavor"
                         value={item.flavor}
                         onChange={(e) => updateItem(index, e)}
-                        placeholder="Cake flavor"
                         className={fieldClass}
-                      />
+                      >
+                        <option value="">Cake flavor</option>
+                        <option value="Vanilla">Vanilla</option>
+                        <option value="Yellow">Yellow</option>
+                        <option value="Red Velvet">Red Velvet</option>
+                        <option value="Chocolate">Chocolate</option>
+                        <option value="Strawberry">Strawberry</option>
+                        <option value="Tres Leches">Tres Leches</option>
+                        <option value="Churro">Churro / Cinnamon Spice</option>
+                        <option value="Mocha">Mocha / Espresso Chocolate</option>
+                        <option value="Custom">Custom</option>
+                      </select>
 
-                      <input
+                      <select
                         name="filling"
                         value={item.filling}
                         onChange={(e) => updateItem(index, e)}
-                        placeholder="Filling"
                         className={fieldClass}
-                      />
+                      >
+                        <option value="">Cake filling</option>
+                        <option value="Buttercream"> Plain Buttercream</option>
+                        <option value="Chocolate Ganache">Chocolate Ganache</option>
+                        <option value="Cream Cheese">Cream Cheese Buttercream</option>
+                        <option value="Strawberries">Fresh Strawberries w/ Cream</option>
+                        <option value="Bananas">Fresh Bananas w/ Cream</option>
+                        <option value="Berries">Fresh Berry mix w/ Cream</option>
+                        <option value="Bavarian Cream">Bavarian Cream</option>
+                        <option value="Custom">Custom</option>
+                      </select>
 
                       <select
                         name="cake_shape"
@@ -319,7 +344,7 @@ function OrderForm() {
                         className={fieldClass}
                       >
                         <option value="">How many dozen?</option>
-                        {quantityOptions.map((option) => (
+                        {dzQuantityOptions.map((option) => (
                           <option key={option} value={option}>
                             {option}
                           </option>
@@ -330,7 +355,34 @@ function OrderForm() {
                         name="cupcake_flavors"
                         value={item.cupcake_flavors}
                         onChange={(e) => updateItem(index, e)}
-                        placeholder="Cupcake flavors. Example: 1 dozen vanilla, 1 dozen chocolate, 1 dozen strawberry."
+                        placeholder="Cupcake flavors. Example: 1 dozen vanilla, 1 dozen chocolate, 1 dozen strawberry..."
+                        className={`${fieldClass} md:col-span-2`}
+                        rows="3"
+                      />
+                    </div>
+                  )}
+
+                    {item.dessert_type === "Cake Pops" && (
+                    <div className="mt-5 grid gap-4 md:grid-cols-2">
+                      <select
+                        name="quantity"
+                        value={item.quantity}
+                        onChange={(e) => updateItem(index, e)}
+                        className={fieldClass}
+                      >
+                        <option value="">How many dozen?</option>
+                        {dzQuantityOptions.map((option) => (
+                          <option key={option} value={option}>
+                            {option}
+                          </option>
+                        ))}
+                      </select>
+
+                      <textarea
+                        name="cakepop_flavors"
+                        value={item.cakepop_flavors}
+                        onChange={(e) => updateItem(index, e)}
+                        placeholder="Cakepop flavors. Example: 1 dozen vanilla, 1 dozen chocolate, 1 dozen strawberry..."
                         className={`${fieldClass} md:col-span-2`}
                         rows="3"
                       />
@@ -346,9 +398,7 @@ function OrderForm() {
                         className={fieldClass}
                       >
                         <option value="">Type of Dessert Cup</option>
-                        <option value="Fresas con Crema">
-                          Fresas con Crema
-                        </option>
+                        <option value="Fresas con Crema">Fresas con Crema</option>
                         <option value="Tiramisu">Tiramisu</option>
                         <option value="Banana Pudding">Banana Pudding</option>
                         <option value="Custom">Custom</option>
@@ -361,7 +411,7 @@ function OrderForm() {
                         className={fieldClass}
                       >
                         <option value="">How many dozen?</option>
-                        {quantityOptions.map((option) => (
+                        {dzQuantityOptions.map((option) => (
                           <option key={option} value={option}>
                             {option}
                           </option>
@@ -379,7 +429,7 @@ function OrderForm() {
                         className={fieldClass}
                       >
                         <option value="">How many dozen?</option>
-                        {quantityOptions.map((option) => (
+                        {halfQuantityOptions.map((option) => (
                           <option key={option} value={option}>
                             {option}
                           </option>
@@ -394,7 +444,7 @@ function OrderForm() {
                         name="customer_notes"
                         value={item.customer_notes}
                         onChange={(e) => updateItem(index, e)}
-                        placeholder="Theme, colors, inspo, allergies, or notes for the baker..."
+                        placeholder="If selected 'Other' or 'Custom', describe here. Baker will get back to you regarding any questions! Leave notes for theme, allergies, or any other words for the baker..."
                         className={`${fieldClass} w-full`}
                         rows="4"
                       />
