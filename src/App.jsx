@@ -1,7 +1,7 @@
-import BakeryProfile from "./pages/BakeryProfile"
+import Home from "./pages/HomeScreen"
 
 function App() {
-  return <BakeryProfile />
+  return <Home />
 }
 
 export default App
