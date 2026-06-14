@@ -1,7 +1,7 @@
-import BakeryProfile from "./pages/BakeryProfile"
+import Search from "./pages/Search"
 
 function App() {
-  return <BakeryProfile />
+  return <Search />
 }
 
 export default App
