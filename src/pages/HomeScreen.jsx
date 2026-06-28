@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 function Home() {
   return (
     <div className="relative min-h-screen overflow-hidden bg-gradient-to-br from-pink-100 via-rose-50 to-orange-100 px-4 py-10">
@@ -15,6 +17,10 @@ function Home() {
             Welcome To
           </p>
 
+          <div className="my-4 flex justify-center">
+            <img src="/images/logos.png" alt="Logo" className="w-30 h-30 rounded-full object-cover"></img>
+          </div>
+
           <h1 className="text-5xl font-extrabold tracking-tight text-pink-800 md:text-7xl">
             CottageCart
           </h1>
@@ -28,9 +34,11 @@ function Home() {
 
             {/* Sweet Treat Locator */}
             <div className="rounded-[2rem] border border-pink-100 bg-gradient-to-br from-pink-50 to-rose-100 p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
-              <button className="w-full rounded-2xl bg-pink-600 px-8 py-5 text-xl font-bold text-white shadow-lg shadow-pink-200 transition hover:bg-pink-700">
-                Sweet Treat Locator
-              </button>
+              <Link to="/search">
+                <button className="w-full rounded-2xl bg-pink-600 px-8 py-5 text-xl font-bold text-white shadow-lg shadow-pink-200 transition hover:bg-pink-700">
+                  Sweet Treat Locator
+                </button>
+              </Link>
 
               <p className="mt-5 text-base leading-relaxed text-gray-600">
                 Search home-based bakeries by name or location.
@@ -39,9 +47,11 @@ function Home() {
 
             {/* Baker Login */}
             <div className="rounded-[2rem] border border-orange-100 bg-gradient-to-br from-orange-50 to-amber-50 p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
-              <button className="w-full rounded-2xl bg-orange-500 px-8 py-5 text-xl font-bold text-white shadow-lg shadow-orange-200 transition hover:bg-orange-600">
-                Baker Login
-              </button>
+              <Link to="/login">
+                <button className="w-full rounded-2xl bg-orange-500 px-8 py-5 text-xl font-bold text-white shadow-lg shadow-orange-200 transition hover:bg-orange-600">
+                  Baker Login
+                </button>
+              </Link>
 
               <p className="mt-5 text-base leading-relaxed text-gray-600">
                 Login or Create a profile to sell your bakery items.

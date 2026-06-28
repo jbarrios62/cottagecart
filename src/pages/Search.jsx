@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Link } from "react-router-dom"
 
 function Search() {
 
@@ -32,6 +33,12 @@ function Search() {
   return (
     <div className="min-h-screen bg-pink-50 px-4 py-10">
       <div className="mx-auto max-w-6xl">
+        <Link
+          to="/"
+          className="mb-6 inline-flex items-center gap-2 text-lg font-semibold text-pink-700 transition hover:text-pink-800"
+        >
+          ← Back
+        </Link>
 
         {/* Page Header */}
 
@@ -89,9 +96,21 @@ function Search() {
                   📍 {baker.city}, {baker.state}
                 </p>
 
-                <button className="mt-6 w-full rounded-2xl bg-pink-600 py-3 font-bold text-white shadow-lg shadow-pink-200 transition hover:bg-pink-700">
-                  View Bakery
-                </button>
+                {baker.businessName === "Thrifted Bakery" ? (
+                  <Link
+                    to="/bakery"
+                    className="mt-6 block w-full rounded-2xl bg-pink-600 py-3 text-center font-bold text-white shadow-lg shadow-pink-200 transition hover:bg-pink-700"
+                  >
+                    View Bakery
+                  </Link>
+                ) : (
+                  <button
+                    className="mt-6 w-full cursor-not-allowed rounded-2xl bg-gray-300 py-3 font-bold text-gray-600"
+                    disabled
+                  >
+                    Coming Soon
+                  </button>
+                )}
 
               </div>
 

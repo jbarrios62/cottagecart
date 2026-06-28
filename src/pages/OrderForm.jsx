@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Link } from "react-router-dom"
 
 function OrderForm() {
   const [order, setOrder] = useState({
@@ -124,6 +125,12 @@ function OrderForm() {
     <div className="min-h-screen bg-pink-50 px-4 py-10">
       <div className="mx-auto max-w-4xl rounded-[2rem] border border-pink-100 bg-white/90 p-8 shadow-xl">
 
+        <Link
+          to="/bakery"
+          className="mb-6 inline-flex items-center gap-2 text-lg font-semibold text-pink-700 transition hover:text-pink-800"
+        >
+          ← Back
+        </Link>
         {/* Banner Placeholder */}
         <div className="h-48 rounded-[2rem] border border-pink-100 bg-gradient-to-r from-pink-200 via-rose-200 to-orange-100"></div>
         <div className="-mt-12 mb-8 flex justify-center">

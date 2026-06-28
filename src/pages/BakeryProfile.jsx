@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 function BakeryProfile() {
   const bakery = {
     businessName: "Thrifted Bakery",
@@ -36,6 +38,12 @@ function BakeryProfile() {
         {/* Profile Card */}
         <div className="-mt-16 rounded-[2rem] border border-pink-100 bg-white/90 p-8 shadow-xl backdrop-blur-md md:p-10">
 
+        <Link
+          to="/search"
+          className="mb-6 inline-flex items-center gap-2 text-lg font-semibold text-pink-700 transition hover:text-pink-800"
+        >
+          ← Back
+        </Link>
           {/* Logo Placeholder */}
           <div className="mb-6 flex justify-center">
             <div className="flex h-28 w-28 items-center justify-center rounded-full border-4 border-white bg-gradient-to-br from-pink-200 to-rose-300 shadow-lg ring-4 ring-pink-100">
@@ -128,9 +136,12 @@ function BakeryProfile() {
             </div>
           </div>
 
-          <button className="mt-10 w-full rounded-2xl bg-pink-600 py-4 text-lg font-bold text-white shadow-lg shadow-pink-200 transition hover:-translate-y-0.5 hover:bg-pink-700">
+          <Link
+            to="/order"
+            className="mt-10 block w-full rounded-2xl bg-pink-600 py-4 text-center text-lg font-bold text-white shadow-lg shadow-pink-200 transition hover:-translate-y-0.5 hover:bg-pink-700"
+          >
             Start Order Request
-          </button>
+          </Link>
         </div>
       </div>
     </div>
