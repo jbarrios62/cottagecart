@@ -1,87 +1,74 @@
-## *_CottageCart Website_*
+# CottageCart
 
-## Full-Stack Online Bakery Ordering & Management System
-
-CottageCart is a full-stack web designed to help with the online ordering process for at home bakeries. The system allows customers to browse products, place online orders and track their purchase while providing bakery staff with an administrative dashboard to manage inventory and customer orders.
-
-## Project Overview
-Many at home bakeries rely on phone calls/ text messages and social media to process orders. This often leads to communication issues, order mistakes and resolves management. The goal is the create an online platform that simplifies the ordering process and improves the overall experience.
-
-## Objectives
-- Allow customers to browse bakery product 
-- Implement secure user authentication
-- Provide shopping cart and checkout functionality
-- Store product and ordering data in a database
-- Create an administrative dashboard in a database
+CottageCart is a web application designed to help home bakers manage custom dessert orders in one place. Customers can browse baker profiles, submit order requests, and communicate with bakers through a streamlined ordering process.
 
 ## Features
-### Customer Features
-- User registeration & login 
-- Browse Bakery Products
-- Product Details
-- Shopping Cart
-- Checkout system
-- Order History 
-- Order Status Tracking
 
-### Admin Features
-- Add/Edit/Delete Products
-- Upload Product Images
-- View Customer Orders
-- Update Order Status 
-- Manage inventory
+* Search for home bakeries
+* Individual bakery profile pages
+* Dynamic custom order request forms
+* Upload inspiration photos for custom orders
+* Dessert table request support
+* Customer order inquiry workflow
+* Baker dashboard foundation
+* Responsive user interface
 
-## Authentication
-### Customer Access
-- Browse Products
-- Place Orders
-- View Order History
+## Tech Stack
 
+* React
+* Vite
+* JavaScript
+* HTML
+* CSS
+* Supabase
+* Git & GitHub
 
-### Administrator Access
-- Manage products
-- Manage customer orders
-- Update inventory
-- Access reports
+## How to Run Locally
 
+Clone the repository:
 
-## Technology Stack
-**Frontend**
-- Vite
-- Tailwind CSS
-- React
+```bash
+git clone https://github.com/jbarrios62/cottagecart.git
+```
 
+Move into the project folder:
 
-**Backend**
-- Supabase
+```bash
+cd cottagecart
+```
 
-**Database**
-- PostgreSQL
+Install dependencies:
 
-### Database Design
-The website will include the following:
+```bash
+npm install
+```
 
-- Users
-- Products
-- Orders
-- Order Items
+Start the development server:
 
-## Feature Enhancements
-- Email order confirmation
+```bash
+npm run dev
+```
 
-### Planned Screens
-- Home Page
-- Search Page
-- Baker Order Form
-- Baker Login Page 
-- Baker Admin/ Management page
+Open your browser and visit:
 
-### Team
-**_Project Name: CottageCart Website_**
-- **Course: CSC/ITC 492 Senior Design**
-- **Developers: Jessica Barrios and Lorena Haro**
+```
+http://localhost:5173
+```
 
+## Project Purpose
 
+CottageCart was created as a senior software engineering project to provide home-based bakeries with a simple, professional platform for managing custom dessert orders. The project focuses on improving communication between customers and bakers while providing an organized workflow for order requests and future business management features.
 
+## Future Improvements
 
-
+* User authentication
+* Baker dashboard
+* Order tracking
+* Email notifications
+* Invoice generation
+* Payment integration
+* Calendar scheduling
+* Customer accounts
+* Favorites and saved bakeries
+* Reviews and ratings
+* Location-based bakery search
