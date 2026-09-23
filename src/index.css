@@ -3,3 +3,14 @@
 body {
   font-family: Georgia, serif;
 }
+
+@theme {
+  --color-espresso: #3A241D;
+  --color-chocolate: #5C382B;
+  --color-warm-brown: #8A5A44;
+  --color-light-brown: #B98B73;
+  --color-muted-peach: #D99A7C;
+  --color-soft-peach: #EBC0AA;
+  --color-cream: #F8F1E7;
+  --color-light-cream: #FFF9F3;
+}
