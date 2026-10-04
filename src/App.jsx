@@ -6,6 +6,7 @@ import BakeryProfile from "./pages/BakeryProfile"
 import OrderForm from "./pages/OrderForm"
 import Login from "./pages/Login"
 import Admin from "./pages/Admin"
+//import CreateProfile from "./pages/CreateProfile"
 
 function App() {
   return (

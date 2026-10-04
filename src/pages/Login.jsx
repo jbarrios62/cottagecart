@@ -33,13 +33,13 @@ function Login() {
 
           <Link
             to="/admin"
-            className="block w-full rounded-2xl bg-soft-peach py-4 text-center text-lg font-bold text-white shadow-lg shadow-warm-chocolate-200 hover:bg-muted-peach"
+            className="block w-full rounded-2xl bg-soft-peach py-4 text-center text-lg font-bold text-white shadow-lg shadow-warm-brown-200 hover:bg-muted-peach"
             >
             Login
         </Link>
         </form>
 
-        <div className="mt-8 border-t border-warm-chocolate pt-6 text-center">
+        <div className="mt-8 border-t border-warm-brown pt-6 text-center">
           <p className="text-espresso">New to CottageCart?</p>
 
           <button className="mt-3 w-full rounded-2xl border border-muted-peach bg-white py-3 font-bold text-chocolate shadow-sm hover:bg-light-brown hover:text-cream">
