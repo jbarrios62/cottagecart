@@ -1,26 +1,29 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
+import Footer from "../components/Footer"
 
 function BakeryProfile() {
+
+  // MOCK BAKERY DATA
+  // Later this will come from Supabase for the specific baker.
 
   const bakery = {
     businessName: "Thrifted Bakery",
     city: "Cerritos",
     state: "CA",
     bio: "Home-based bakery specializing in custom cakes, cake pops, and desserts.",
+
+    responseTime: "2 days",
+
+    instagram: "#",
+    tiktok: "#",
+    website: "#",
   }
 
 
-  // Available Order Types
-  const blocks = [
-    "Cake",
-    "Cupcakes",
-    "Cake Pops",
-  ]
+  // MOCK GALLERY DATA
+  // Bakers will eventually be able to upload up to 12 gallery items.
 
-
-  // Gallery Items
-  // Bakers will eventually be able to upload up to 12.
   const galleryItems = [
     {
       image: "/images/bakery1.jpg",
@@ -55,17 +58,15 @@ function BakeryProfile() {
   ]
 
 
-  // Gallery State
+  // GALLERY STATE
 
   const [currentImage, setCurrentImage] = useState(0)
-
 
   const nextImage = () => {
     setCurrentImage(
       (currentImage + 1) % galleryItems.length
     )
   }
-
 
   const previousImage = () => {
     setCurrentImage(
@@ -74,15 +75,59 @@ function BakeryProfile() {
     )
   }
 
+// MOCK REVIEW DATA
+// Later this will come from completed CottageCart orders in Supabase.
+// Reviews can only be submitted after an order is fulfilled.
 
-  // Temporary Calendar Data
-  // Later this will come from the baker's availability settings.
+const reviews = [
+  {
+    id: 1,
+    customerName: "Sarah M.",
+    rating: 5,
+    review:
+      "The cake was beautiful and tasted amazing! Everything looked exactly how I wanted and pickup was super easy.",
+    date: "October 2026",
+    verified: true,
+    photos: [
+      "/images/review1.jpg",
+      "/images/review2.jpg",
+    ],
+  },
+  {
+    id: 2,
+    customerName: "Ashley R.",
+    rating: 5,
+    review:
+      "Everything was perfect! The desserts were a huge hit at my party and communication was great throughout the whole process.",
+    date: "September 2026",
+    verified: true,
+    photos: [],
+  },
+  {
+    id: 3,
+    customerName: "Emily T.",
+    rating: 4,
+    review:
+      "Loved my order! The cake was super cute and tasted great. I would definitely order again.",
+    date: "August 2026",
+    verified: true,
+    photos: [
+      "/images/review3.jpg",
+    ],
+  },
+]
+
+const averageRating =
+  reviews.reduce((total, review) => total + review.rating, 0) /
+  reviews.length
+
+  // MOCK CALENDAR DATA
+  // Later this will come from the baker's Supabase availability data.
 
   const calendarDays = Array.from(
     { length: 31 },
     (_, index) => index + 1
   )
-
 
   const marketDates = [
     3,
@@ -90,7 +135,6 @@ function BakeryProfile() {
     17,
     24,
   ]
-
 
   const openDates = [
     5,
@@ -102,7 +146,6 @@ function BakeryProfile() {
     26,
     27,
   ]
-
 
   const bookedDates = [
     8,
@@ -142,7 +185,7 @@ function BakeryProfile() {
       <div className="pointer-events-none absolute right-[-120px] top-[200px] h-[450px] w-[450px] rounded-full bg-light-brown/20 blur-3xl"></div>
 
 
-      <div className="relative z-10 mx-auto max-w-5xl">
+      <div className="relative z-10 mx-auto max-w-6xl">
 
 
         {/* Back */}
@@ -188,76 +231,52 @@ function BakeryProfile() {
               Home Bakery
             </p>
 
-
             <h1 className="text-4xl font-extrabold tracking-tight text-chocolate md:text-5xl">
               {bakery.businessName}
             </h1>
-
 
             <p className="mt-3 text-warm-brown">
               📍 {bakery.city}, {bakery.state}
             </p>
 
-
             <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-espresso">
               {bakery.bio}
             </p>
-
-
-            {/* Bakery Tags */}
-
-            <div className="mt-5 flex flex-wrap justify-center gap-3">
-
-              <span className="rounded-full border border-soft-peach bg-white px-4 py-2 text-sm font-medium text-chocolate">
-                🧁 Custom Orders
-              </span>
-
-
-              <span className="rounded-full border border-soft-peach bg-white px-4 py-2 text-sm font-medium text-chocolate">
-                📅 View Availability
-              </span>
-
-            </div>
 
           </div>
 
 
 
-          {/* Our Work */}
+          {/* Gallery + Availability */}
 
-          <div className="mt-12">
-
-
-            {/* Gallery Header */}
-
-            <div className="mb-5 text-center">
-
-              <h2 className="text-2xl font-bold text-chocolate">
-                Carousel of Sweets!
-              </h2>
+          <div className="mt-12 grid gap-8 lg:grid-cols-2 lg:items-start">
 
 
-              <p className="mx-auto mt-2 max-w-2xl text-sm leading-relaxed text-warm-brown">
-                Browse past orders and examples of our work.
-              </p>
+            {/* Our Work */}
 
-            </div>
+            <div className="rounded-[2rem] border border-soft-peach bg-white p-6 shadow-sm">
+
+              <div className="mb-5 text-center">
+
+                <h2 className="text-2xl font-bold text-chocolate">
+                  Carousel of Sweets!
+                </h2>
+
+                <p className="mt-1 text-sm text-warm-brown">
+                  Browse past orders and examples of our work.
+                </p>
+
+              </div>
 
 
+              {/* Main Gallery Image */}
 
-            {/* Main Gallery Card */}
-
-            <div className="mx-auto max-w-xl overflow-hidden rounded-[2rem] border border-soft-peach bg-white shadow-md">
-
-
-              {/* Gallery Image */}
-
-              <div className="relative">
+              <div className="relative overflow-hidden rounded-2xl bg-light-cream">
 
                 <img
                   src={galleryItems[currentImage].image}
                   alt={galleryItems[currentImage].description}
-                  className="h-[300px] w-full object-cover"
+                  className="h-[260px] w-full object-cover"
                 />
 
 
@@ -283,15 +302,13 @@ function BakeryProfile() {
               </div>
 
 
+              {/* Order Details */}
 
-              {/* Order Information */}
+              <div className="pt-5 text-center">
 
-              <div className="p-5 text-center">
-
-                <p className="font-semibold text-chocolate">
+                <p className="font-semibold leading-relaxed text-chocolate">
                   {galleryItems[currentImage].description}
                 </p>
-
 
                 <p className="mt-2 text-lg font-bold text-muted-peach">
                   {galleryItems[currentImage].price}
@@ -299,85 +316,73 @@ function BakeryProfile() {
 
               </div>
 
-            </div>
+
+              {/* Counter */}
+
+              <p className="mt-3 text-center text-xs text-warm-brown">
+                {currentImage + 1} / {galleryItems.length}
+              </p>
 
 
+              {/* Compact Thumbnails */}
 
-            {/* Image Counter */}
+              <div className="mt-4 flex gap-2 overflow-x-auto pb-2">
 
-            <p className="mt-3 text-center text-sm text-warm-brown">
-              {currentImage + 1} / {galleryItems.length}
-            </p>
+                {galleryItems.map((item, index) => (
 
+                  <button
+                    key={index}
+                    onClick={() => setCurrentImage(index)}
+                    className={`shrink-0 overflow-hidden rounded-lg border-2 transition ${
+                      currentImage === index
+                        ? "border-muted-peach"
+                        : "border-transparent opacity-60 hover:opacity-100"
+                    }`}
+                  >
 
+                    <img
+                      src={item.image}
+                      alt={item.description}
+                      className="h-11 w-11 object-cover"
+                    />
 
-            {/* Gallery Thumbnails */}
+                  </button>
 
-            <div className="mx-auto mt-4 flex max-w-2xl justify-center gap-2 overflow-x-auto pb-2">
+                ))}
 
-              {galleryItems.map((item, index) => (
-
-                <button
-                  key={index}
-                  onClick={() => setCurrentImage(index)}
-                  className={`shrink-0 overflow-hidden rounded-xl border-2 transition ${
-                    currentImage === index
-                      ? "border-muted-peach"
-                      : "border-transparent opacity-60 hover:opacity-100"
-                  }`}
-                >
-
-                  <img
-                    src={item.image}
-                    alt={item.description}
-                    className="h-14 w-14 object-cover"
-                  />
-
-                </button>
-
-              ))}
-
-            </div>
+              </div>
 
 
+              {/* Price Disclaimer */}
 
-            {/* Price Disclaimer */}
-
-            <p className="mx-auto mt-4 max-w-xl text-center text-xs leading-relaxed text-warm-brown">
-              Prices shown are examples from past orders.
-              Final pricing may vary depending on customization
-              and order details.
-            </p>
-
-          </div>
-
-
-
-          {/* Availability */}
-
-          <div className="mt-14">
-
-
-            {/* Availability Header */}
-
-            <div className="mb-6 text-center">
-
-              <h2 className="text-2xl font-bold text-chocolate">
-                Availability
-              </h2>
-
-
-              <p className="mt-1 text-sm text-warm-brown">
-                Check upcoming order availability and market dates.
+              <p className="mt-3 text-center text-xs leading-relaxed text-warm-brown">
+                Prices shown are examples from past orders.
+                Final pricing may vary depending on customization
+                and order details.
               </p>
 
             </div>
 
 
 
-            {/* Calendar */}
+            {/* Availability */}
 
-            <div className="mx-auto max-w-2xl rounded-[2rem] border border-soft-peach bg-white p-6 shadow-sm">
+            <div className="rounded-[2rem] border border-soft-peach bg-white p-6 shadow-sm">
+
+
+              {/* Availability Header */}
+
+              <div className="mb-5 text-center">
+
+                <h2 className="text-2xl font-bold text-chocolate">
+                  Availability
+                </h2>
+
+                <p className="mt-1 text-sm text-warm-brown">
+                  Check upcoming order availability and market dates.
+                </p>
+
+              </div>
 
 
               {/* Calendar Header */}
@@ -388,18 +393,15 @@ function BakeryProfile() {
                   ←
                 </button>
 
-
                 <h3 className="text-xl font-bold text-chocolate">
                   October 2026
                 </h3>
-
 
                 <button className="text-xl font-bold text-chocolate transition hover:text-muted-peach">
                   →
                 </button>
 
               </div>
-
 
 
               {/* Days of Week */}
@@ -417,13 +419,11 @@ function BakeryProfile() {
               </div>
 
 
-
               {/* Calendar Dates */}
 
               <div className="grid grid-cols-7 gap-2">
 
-
-                {/* October 2026 starts on Thursday */}
+                {/* October 2026 starts Thursday */}
 
                 <div></div>
                 <div></div>
@@ -435,47 +435,64 @@ function BakeryProfile() {
 
                   const status = getDateStatus(day)
 
-
                   return (
 
                     <div
                       key={day}
-                        className={`flex aspect-square items-center justify-center rounded-xl border text-sm font-semibold ${
-                          status === "open"
-                            ? "border-sage bg-sage/30 text-chocolate"
-                            : status === "market"
-                            ? "border-muted-purple bg-muted-purple/30 text-chocolate"
-                            : status === "booked"
-                            ? "border-dusty-red bg-dusty-red/30 text-chocolate"
-                            : "border-cream bg-light-cream text-warm-brown"
-                        }`}
+                      className={`flex aspect-square items-center justify-center rounded-xl border text-sm font-semibold ${
+                        status === "open"
+                          ? "border-sage bg-sage/30 text-chocolate"
+                          : status === "market"
+                          ? "border-muted-purple bg-muted-purple/30 text-chocolate"
+                          : status === "booked"
+                          ? "border-dusty-red bg-dusty-red/30 text-chocolate"
+                          : "border-cream bg-light-cream text-warm-brown"
+                      }`}
                     >
                       {day}
                     </div>
+
                   )
+
                 })}
 
               </div>
 
 
-
               {/* Calendar Legend */}
 
-              <div className="mt-6 flex flex-wrap justify-center gap-5 text-sm text-espresso">
+              <div className="mt-6 flex flex-wrap justify-center gap-4 text-xs text-espresso">
 
                 <div className="flex items-center gap-2">
+
                   <span className="h-3 w-3 rounded-full bg-sage"></span>
-                  Open for Orders
+
+                  <span>
+                    Open for Orders
+                  </span>
+
                 </div>
 
+
                 <div className="flex items-center gap-2">
+
                   <span className="h-3 w-3 rounded-full bg-muted-purple"></span>
-                  Market Date
+
+                  <span>
+                    Market Date
+                  </span>
+
                 </div>
 
+
                 <div className="flex items-center gap-2">
+
                   <span className="h-3 w-3 rounded-full bg-dusty-red"></span>
-                  Fully Booked
+
+                  <span>
+                    Fully Booked
+                  </span>
+
                 </div>
 
               </div>
@@ -485,88 +502,247 @@ function BakeryProfile() {
           </div>
 
 
+
           {/* Order Inquiry */}
 
-          <div className="mx-auto mt-12 max-w-2xl rounded-[2rem] border border-soft-peach bg-white p-8 text-center shadow-sm">
+          <div className="mx-auto mt-10 max-w-3xl rounded-[2rem] border border-soft-peach bg-white p-8 text-center shadow-sm">
 
             <p className="mb-2 text-sm font-semibold uppercase tracking-[0.25em] text-warm-brown">
               Order Inquiry
             </p>
 
             <h2 className="text-2xl font-bold text-chocolate">
-              Ready to order or got questions?
+              Ready to order?
             </h2>
 
             <p className="mx-auto mt-4 max-w-xl leading-relaxed text-espresso">
-              Submit an order request or inquiry to get started! Check out our
-              order form to see exactly what we offer and tell us what you're
-              looking for.
+              Submit an order request or inquiry to get started!
+              Check out our order form to see exactly what we offer
+              and tell us what you're looking for.
             </p>
 
             <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-warm-brown">
-              We'll get back to you within 2 days to discuss your request,
-              answer any questions, and confirm your order details.
+              We'll get back to you within {bakery.responseTime} to
+              discuss your request, answer any questions, and confirm
+              your order details.
             </p>
 
             <Link
               to="/order"
-              className="mt-7 block w-full rounded-2xl bg-soft-peach py-4 text-center text-lg font-bold text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-muted-peach"
+              className="mx-auto mt-7 block w-full max-w-md rounded-2xl bg-soft-peach py-4 text-center text-lg font-bold text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-muted-peach"
             >
               Start Order Request
             </Link>
 
           </div>
 
+          {/* Review Section */}
+{/* Review Section */}
+
+<div className="mx-auto mt-12 max-w-5xl">
+
+  {/* Review Header */}
+
+  <div className="text-center">
+
+    <p className="mb-2 text-sm font-semibold uppercase tracking-[0.25em] text-warm-brown">
+      Customer Reviews
+    </p>
+
+    <h2 className="text-3xl font-bold text-chocolate">
+      What Customers Are Saying
+    </h2>
+
+    <div className="mt-4 flex items-center justify-center gap-3">
+
+      <span className="text-2xl font-bold text-chocolate">
+        ★ {averageRating.toFixed(1)}
+      </span>
+
+      <span className="text-sm text-warm-brown">
+        {reviews.length} Verified Reviews
+      </span>
+
+    </div>
+
+    <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-warm-brown">
+      Reviews are submitted by customers after completing an order
+      through CottageCart.
+    </p>
+
+  </div>
+
+
+  {/* Review Cards */}
+
+  <div className="mt-8 grid gap-5">
+
+    {reviews.map((review) => (
+
+      <div
+        key={review.id}
+        className="rounded-[2rem] border border-soft-peach bg-white p-6 shadow-sm"
+      >
+
+        {/* Stars + Verified */}
+
+        <div className="flex flex-wrap items-center justify-between gap-3">
+
+          <div className="text-lg tracking-wide text-muted-peach">
+
+            {"★".repeat(review.rating)}
+
+            <span className="text-light-brown">
+              {"★".repeat(5 - review.rating)}
+            </span>
+
+          </div>
+
+
+          {review.verified && (
+
+            <span className="rounded-full bg-sage/30 px-3 py-1 text-xs font-semibold text-chocolate">
+              ✓ Verified Order
+            </span>
+
+          )}
+
+        </div>
+
+
+        {/* Review */}
+
+        <p className="mt-4 leading-relaxed text-espresso">
+          “{review.review}”
+        </p>
+
+
+        {/* Optional Customer Photos */}
+
+        {review.photos.length > 0 && (
+
+          <div className="mt-5 flex flex-wrap gap-3">
+
+            {review.photos.map((photo, index) => (
+
+              <img
+                key={index}
+                src={photo}
+                alt={`Customer order photo ${index + 1}`}
+                className="h-28 w-28 rounded-xl border border-soft-peach object-cover shadow-sm"
+              />
+
+            ))}
+
+          </div>
+
+        )}
+
+
+        {/* Customer + Date */}
+
+        <div className="mt-5 flex flex-wrap items-center justify-between gap-2 border-t border-cream pt-4">
+
+          <p className="font-semibold text-chocolate">
+            {review.customerName}
+          </p>
+
+          <p className="text-sm text-warm-brown">
+            {review.date}
+          </p>
+
+        </div>
+
+      </div>
+
+    ))}
+
+  </div>
+
+
+  {/* View All Reviews */}
+
+  <div className="mt-6 text-center">
+
+    <button className="rounded-2xl border border-muted-peach bg-light-cream px-6 py-3 font-semibold text-chocolate shadow-sm transition hover:bg-soft-peach/20">
+      View All Reviews
+    </button>
+
+  </div>
+
+</div>
 
           {/* Social Links */}
 
-          <div className="mt-12 text-center">
+          <div className="mt-12 border-t border-soft-peach pt-8 text-center">
 
             <h2 className="text-xl font-bold text-chocolate">
               Connect with {bakery.businessName}
             </h2>
 
             <p className="mt-2 text-sm text-warm-brown">
-              Follow along and see more of our work.
+              Follow us to stay updated and connect!
             </p>
+
 
             <div className="mt-5 flex flex-wrap justify-center gap-3">
 
-              <a
-                href="#"
-                className="rounded-full border border-light-brown bg-white px-5 py-2 font-semibold text-chocolate shadow-sm transition hover:border-muted-peach hover:bg-soft-peach/20"
-              >
-                Instagram
-              </a>
 
-              <a
-                href="#"
-                className="rounded-full border border-light-brown bg-white px-5 py-2 font-semibold text-chocolate shadow-sm transition hover:border-muted-peach hover:bg-soft-peach/20"
-              >
-                TikTok
-              </a>
+              {/* Instagram */}
 
-              <a
-                href="#"
-                className="rounded-full border border-light-brown bg-white px-5 py-2 font-semibold text-chocolate shadow-sm transition hover:border-muted-peach hover:bg-soft-peach/20"
-              >
-                Website
-              </a>
+              {bakery.instagram && (
+
+                <a
+                  href={bakery.instagram}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="rounded-full border border-light-brown bg-white px-5 py-2 font-semibold text-chocolate shadow-sm transition hover:border-muted-peach hover:bg-soft-peach/20"
+                >
+                  Instagram
+                </a>
+
+              )}
+
+
+              {/* TikTok */}
+
+              {bakery.tiktok && (
+
+                <a
+                  href={bakery.tiktok}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="rounded-full border border-light-brown bg-white px-5 py-2 font-semibold text-chocolate shadow-sm transition hover:border-muted-peach hover:bg-soft-peach/20"
+                >
+                  TikTok
+                </a>
+
+              )}
+
+
+              {/* Optional Website */}
+
+              {bakery.website && (
+
+                <a
+                  href={bakery.website}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="rounded-full border border-light-brown bg-white px-5 py-2 font-semibold text-chocolate shadow-sm transition hover:border-muted-peach hover:bg-soft-peach/20"
+                >
+                  Website
+                </a>
+
+              )}
 
             </div>
 
           </div>
 
 
-
-          
-
-
         </div>
-
+        <Footer/>
       </div>
-      
- 
 
     </div>
   )
